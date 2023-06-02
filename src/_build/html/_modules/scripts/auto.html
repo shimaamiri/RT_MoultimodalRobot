@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>scripts.auto &mdash; ResearchTrack1_Assignment3 1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ResearchTrack1_Assignment3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ResearchTrack1_Assignment3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">scripts.auto</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for scripts.auto</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: auto</span>
+<span class="sd">    :platform: Unix</span>
+<span class="sd">    :synopsis: Python module for autonomous driving.</span>
+<span class="sd">.. moduleauthor:: Shima Amiri Fard &lt;s5269794@studenti.unige.it&gt;</span>
+
+<span class="sd">This module implements the autonomous driving mode. In this node, an Action Client-Service communication is implemented.</span>
+<span class="sd">The user needs to enter the target x and y, then the desired coordinate is sent as a goal to the action server/move_base.</span>
+
+<span class="sd">Subscribes to:</span>
+<span class="sd">    - /nav_msgs/odometry, which publishes the robot position</span>
+
+<span class="sd">Action client:</span>
+<span class="sd">    - /move_base</span>
+
+<span class="sd">Action messages:</span>
+<span class="sd">    - MoveBaseAction</span>
+<span class="sd">    - MoveBaseGoal, contains information about where the robot should move to in the environment</span>
+
+<span class="sd">Feedbacks:</span>
+<span class="sd">    - /move_base/goal, if the goal is reached</span>
+<span class="sd">    - /move_base/cancel, if the goal is canceled</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">actionlib</span>
+<span class="kn">from</span> <span class="nn">move_base_msgs.msg</span> <span class="kn">import</span> <span class="n">MoveBaseAction</span><span class="p">,</span> <span class="n">MoveBaseGoal</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">nav_msgs.msg</span> <span class="kn">import</span> <span class="n">Odometry</span>
+<span class="kn">from</span> <span class="nn">tf</span> <span class="kn">import</span> <span class="n">transformations</span>
+<span class="kn">from</span> <span class="nn">std_srvs.srv</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;                                                                  &quot;</span>
+<span class="n">flg</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="param_update"><a class="viewcode-back" href="../../index.html#scripts.auto.param_update">[docs]</a><span class="k">def</span> <span class="nf">param_update</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function allocates updated values of parameters to the global variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">x_des</span><span class="p">,</span> <span class="n">y_des</span><span class="p">,</span> <span class="n">active_</span>
+    <span class="n">active_</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">)</span>
+    <span class="n">x_des</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;x_pos&#39;</span><span class="p">)</span>
+    <span class="n">y_des</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;y_pos&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="callback_odometry"><a class="viewcode-back" href="../../index.html#scripts.auto.callback_odometry">[docs]</a><span class="k">def</span> <span class="nf">callback_odometry</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A callback function to the topic /odom, which is required to retrieve the presence of the robot.</span>
+<span class="sd">    The odometry information of the robot is stored in the r_pos variable.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        msg: contains the position of the robot (x, y)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">r_pos</span>
+    <span class="n">r_pos</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span></div>
+
+
+<div class="viewcode-block" id="callback_status_update"><a class="viewcode-back" href="../../index.html#scripts.auto.callback_status_update">[docs]</a><span class="k">def</span> <span class="nf">callback_status_update</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A callback function to update the robot status when it reaches the target.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        status: goal status (actionlib_goalStatus)</span>
+<span class="sd">        result: goal result (MoveBaseResult)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">flg</span>
+
+    <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GOAL REACHED!&quot;</span> <span class="o">+</span> <span class="n">state</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">flg</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="client_goal"><a class="viewcode-back" href="../../index.html#scripts.auto.client_goal">[docs]</a><span class="k">def</span> <span class="nf">client_goal</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function sets a new goal for the robot. The action can send a goal or cancel request from the client to the server.</span>
+<span class="sd">    After receiving, the server processes it and can give information back to the client.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">goal</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x_des</span>
+    <span class="n">goal</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y_des</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUTO MODE&quot;</span> <span class="o">+</span> <span class="n">state</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span> <span class="n">callback_status_update</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="client_init"><a class="viewcode-back" href="../../index.html#scripts.auto.client_init">[docs]</a><span class="k">def</span> <span class="nf">client_init</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function first initializes the Action Client. Then waits for the server, and initializes and sets the goal message.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">client</span>
+    <span class="k">global</span> <span class="n">goal</span>
+
+    <span class="n">client</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionClient</span><span class="p">(</span><span class="s1">&#39;move_base&#39;</span><span class="p">,</span> <span class="n">MoveBaseAction</span><span class="p">)</span>
+
+    <span class="n">client</span><span class="o">.</span><span class="n">wait_for_server</span><span class="p">()</span>  <span class="c1"># Waits until the server connects.</span>
+    <span class="n">goal</span> <span class="o">=</span> <span class="n">MoveBaseGoal</span><span class="p">()</span>  <span class="c1"># goal messages</span>
+    <span class="n">goal</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s2">&quot;map&quot;</span>  <span class="c1"># setting the goal message</span>
+    <span class="n">goal</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">goal</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span></div>
+
+
+<div class="viewcode-block" id="callback_reset"><a class="viewcode-back" href="../../index.html#scripts.auto.callback_reset">[docs]</a><span class="k">def</span> <span class="nf">callback_reset</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function will reset the robot&#39;s behavior when the robot doesn&#39;t reach the goal within a given time.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        event: time variable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">active_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goal time exceeded: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">current_real</span><span class="p">)</span> <span class="o">+</span> <span class="n">state</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to reach the goal!!!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Setting parameters on the parameters server</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">set_param</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../index.html#scripts.auto.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main function which controls the robot&#39;s behavior.</span>
+<span class="sd">    When the callback function subscribes and the node is initialized, the while loop starts spinning.</span>
+<span class="sd">    During execution, the node will call the last defined functions as the robot state is defined by global variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">active_</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">)</span>  <span class="c1"># active_ controls the robot&#39;s operation</span>
+    <span class="n">x_des</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;x_pos&#39;</span><span class="p">)</span>  <span class="c1"># retrieves the x component of the goal position</span>
+    <span class="n">y_des</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;y_pos&#39;</span><span class="p">)</span>  <span class="c1"># retrieves the y component of the goal position</span>
+
+    <span class="k">global</span> <span class="n">flg</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;go_to_desired_pos&#39;</span><span class="p">)</span>  <span class="c1"># initializing the node</span>
+    <span class="n">sub_odom</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;/odom&#39;</span><span class="p">,</span> <span class="n">Odometry</span><span class="p">,</span> <span class="n">callback_odometry</span><span class="p">)</span>  <span class="c1"># subscriber to /odom</span>
+
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># sleep rate</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">client_init</span><span class="p">()</span>  <span class="c1"># initializing the action client</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">param_update</span><span class="p">()</span>
+
+        <span class="c1"># If the active_ parameter is 1, the node gets active.</span>
+        <span class="k">if</span> <span class="n">active_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f1</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">client_goal</span><span class="p">()</span>  <span class="c1"># sets a new goal</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="n">callback_reset</span><span class="p">)</span>  <span class="c1"># initializing reset function</span>
+
+                <span class="n">f1</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">f2</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># idle mode</span>
+            <span class="k">if</span> <span class="n">f1</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">f2</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OPERATION 1: Auto driving is stopped&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">f1</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">if</span> <span class="n">f1</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">f2</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">flg</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="c1"># If the robot reaches the goal and the operation 1 is stopped</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OPERATION 1: Auto driving is stopped&quot;</span> <span class="o">+</span> <span class="n">state</span><span class="p">)</span>
+                    <span class="n">f1</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">f2</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="n">flg</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># If the robot failed to reach the goal when the user starts the operations or else the time is exceeded.</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time exceeded!!! Failed to reach the goal!!! Operation 1 stopped!!! &quot;</span> <span class="o">+</span> <span class="n">state</span><span class="p">)</span>
+                    <span class="n">client</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
+                    <span class="n">f1</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">f2</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># robot position</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X-Coordinate &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_pos</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; Y-Coordinate&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_pos</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Shima Amiri Fard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

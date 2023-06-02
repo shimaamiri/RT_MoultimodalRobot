@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classmanual_1_1_publish_thread" kind="class"><name>manual::PublishThread</name>
+    <member refid="classmanual_1_1_publish_thread_1a66533793721396b2abfb2d3d56ed1b70" kind="variable"><name>publisher</name></member>
+    <member refid="classmanual_1_1_publish_thread_1adc613edd69fc5992910ba33cc9e26941" kind="variable"><name>x</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a5048c3ec72ed105002a6846a489f2821" kind="variable"><name>y</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a2c43dbe8a7dc1618601f9bcf2173f7b9" kind="variable"><name>z</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a8e100d42b3932701c685ecb46c804efc" kind="variable"><name>th</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a4e2d26492b642983eb4f6331428c6a3f" kind="variable"><name>speed</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a1e49c2577250629d3caccbfa30dfc661" kind="variable"><name>turn</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a194eac72c669e8262b60d1c319ca7726" kind="variable"><name>condition</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a6eb48f812e1d72cd707beb537252b2fc" kind="variable"><name>done</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a2e1e9ae7dff90a2816f4fe06ea310390" kind="variable"><name>timeout</name></member>
+    <member refid="classmanual_1_1_publish_thread_1ad94f73e6b9a56a137c13f5792fdf8839" kind="function"><name>__init__</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a4e51752f17e3dea0dc21d3f5d183f311" kind="function"><name>wait_for_subscribers</name></member>
+    <member refid="classmanual_1_1_publish_thread_1aa042855f07b0914aa55e4938007ecc4c" kind="function"><name>update</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a8fab4206638347ff0224e8a2d4099efa" kind="function"><name>stop</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a37eed668e80fa0eeeb55df83dfa4b417" kind="function"><name>stop_r</name></member>
+    <member refid="classmanual_1_1_publish_thread_1a91ec8498c1a23272b0e31686ce219917" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="namespaceassistive" kind="namespace"><name>assistive</name>
+    <member refid="namespaceassistive_1a68eede63df7ef493b1986a9eacfeb22f" kind="variable"><name>l</name></member>
+    <member refid="namespaceassistive_1ad9dfd11c01f7428673822d0a03316139" kind="variable"><name>r</name></member>
+    <member refid="namespaceassistive_1ab386e29fa01002c8549c07e4156e0175" kind="variable"><name>f</name></member>
+    <member refid="namespaceassistive_1a06db66cbae42e8e8bb5279db0114522e" kind="function"><name>callback_avoid</name></member>
+    <member refid="namespaceassistive_1a8fdbad8c3d3ef224417261cac64715d6" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespaceauto" kind="namespace"><name>auto</name>
+    <member refid="namespaceauto_1a3e1c6917504b6a91b5f8fc5cc4093247" kind="variable"><name>state</name></member>
+    <member refid="namespaceauto_1aac0b6dadf4b561898a660e77d1079efe" kind="variable"><name>flg</name></member>
+    <member refid="namespaceauto_1ab6d40b467f53716fd7696c9c6fd9c04f" kind="function"><name>param_update</name></member>
+    <member refid="namespaceauto_1a208dd027e7678820216f01adfc4da888" kind="function"><name>callback_odometry</name></member>
+    <member refid="namespaceauto_1a8860f41a55e0be7e2af4d02163f39e85" kind="function"><name>callback_status_update</name></member>
+    <member refid="namespaceauto_1ab6f303ad46c67e2dde4dc31e52e184d9" kind="function"><name>client_goal</name></member>
+    <member refid="namespaceauto_1a546f667b3d1b827d21b4e5d9ce2c41ad" kind="function"><name>client_init</name></member>
+    <member refid="namespaceauto_1ae290b959a90956ddfad86b17a59a647e" kind="function"><name>callback_reset</name></member>
+    <member refid="namespaceauto_1ac9acb5dcda914aacc66f5d3041ec4976" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespaceconf" kind="namespace"><name>conf</name>
+    <member refid="conf_8py_1a332f430461432dc465213f884a1e4967" kind="variable"><name>shell</name></member>
+    <member refid="conf_8py_1a45653c983098153b78e33600e39230eb" kind="variable"><name>project</name></member>
+    <member refid="conf_8py_1a33fa97cf51dcb25970fbf53f10159589" kind="variable"><name>copyright</name></member>
+    <member refid="conf_8py_1a637c239d256432248aa8d9f3ab0b8c52" kind="variable"><name>author</name></member>
+    <member refid="conf_8py_1a325dc746d8bf05c54d26351c35a21d90" kind="variable"><name>release</name></member>
+    <member refid="conf_8py_1ae475e080536acb271a0a0efe56c3ba42" kind="variable"><name>extensions</name></member>
+    <member refid="conf_8py_1ae850ae634911b713e036b43894fdd525" kind="variable"><name>templates_path</name></member>
+    <member refid="conf_8py_1a7ad48fb6f3e9b129c02346ea0d3527c1" kind="variable"><name>exclude_patterns</name></member>
+    <member refid="conf_8py_1a3117edf4443d9b8c70a9f0f44294ba79" kind="variable"><name>highlight_language</name></member>
+    <member refid="conf_8py_1a10af2a769eb3bd3322e874f677e435b1" kind="variable"><name>source_suffix</name></member>
+    <member refid="conf_8py_1a6fcd7e5236f355b1e1a55f9d95988810" kind="variable"><name>master_doc</name></member>
+    <member refid="conf_8py_1a6c3bfcc1a44546c1c75ce20f55bd0fd6" kind="variable"><name>html_theme</name></member>
+    <member refid="conf_8py_1af4fb5d8851ccaade135c2668dd3ced41" kind="variable"><name>html_static_path</name></member>
+    <member refid="conf_8py_1a8375f4f963de3ac8026eaa9beced9564" kind="variable"><name>intersphinx_mapping</name></member>
+    <member refid="conf_8py_1a8fe7f0d85f975f4ecba5cb6066959a09" kind="variable"><name>todo_include_todos</name></member>
+    <member refid="conf_8py_1acb47d2c0c2904fa7d36b63142533f383" kind="variable"><name>breathe_projects</name></member>
+    <member refid="conf_8py_1a6eba2d2c7ae923054b1c49e686ec89b9" kind="variable"><name>breathe_default_project</name></member>
+    <member refid="conf_8py_1a54585428ce84441199d9dfd7087e2243" kind="variable"><name>breathe_default_members</name></member>
+  </compound>
+  <compound refid="namespacemanual" kind="namespace"><name>manual</name>
+    <member refid="namespacemanual_1a0c2c883935fcb142163074d71afc7455" kind="variable"><name>msg</name></member>
+    <member refid="namespacemanual_1a83479c65f11b0c3feaa3092949115c75" kind="variable"><name>l</name></member>
+    <member refid="namespacemanual_1a19bb7c608a16eba0816661840d63134d" kind="variable"><name>r</name></member>
+    <member refid="namespacemanual_1aa95e6ab504a59315cf9e70626579b015" kind="variable"><name>f</name></member>
+    <member refid="namespacemanual_1aad63f284b04b062acb85ed11a309f36f" kind="variable"><name>fl</name></member>
+    <member refid="namespacemanual_1a7d65bd103830cc9a6340abac2b4057d6" kind="variable"><name>fr</name></member>
+    <member refid="namespacemanual_1a3e46722a65cafcef18fb0f3effd3b81c" kind="variable"><name>moveBindings</name></member>
+    <member refid="namespacemanual_1ac75c9097c20b1876a62aa4529888c4da" kind="variable"><name>speedBindings</name></member>
+    <member refid="namespacemanual_1a7fe4b9c9acec80d202536ab01252d95a" kind="variable"><name>settings</name></member>
+    <member refid="namespacemanual_1a39f149d6ee1a75b4d851a506bc57a1b5" kind="variable"><name>speed</name></member>
+    <member refid="namespacemanual_1aa1f419fe983b631f9180f2adb6802406" kind="variable"><name>turn</name></member>
+    <member refid="namespacemanual_1a7babe1cc361d3de121cd92bff9a09a1d" kind="variable"><name>repeat</name></member>
+    <member refid="namespacemanual_1a94405c184c68bb0a24fde60b15819c1b" kind="variable"><name>key_timeout</name></member>
+    <member refid="namespacemanual_1ad5f15c381756fb1a59a0f6c885f0e5e8" kind="variable"><name>active_</name></member>
+    <member refid="namespacemanual_1abca164b05182510289fc7889f2670fc2" kind="variable"><name>flag1</name></member>
+    <member refid="namespacemanual_1ae40e784a7779b80399a74ecb5ea640c7" kind="variable"><name>flag2</name></member>
+    <member refid="namespacemanual_1a7e45a41de8b8816f02ece6c0c974cf17" kind="variable"><name>pub_thread</name></member>
+    <member refid="namespacemanual_1a7147cb43fcb3aef54ad1f6a9296c78d0" kind="variable"><name>x</name></member>
+    <member refid="namespacemanual_1a3558973b20d5162693dce98c5cc57247" kind="variable"><name>y</name></member>
+    <member refid="namespacemanual_1a23536d6932517b930e50bf863be60883" kind="variable"><name>z</name></member>
+    <member refid="namespacemanual_1a6720ffc0e09bfbff8480c0cd867fe90e" kind="variable"><name>th</name></member>
+    <member refid="namespacemanual_1a6640203dc3fb8706198a3450e76e8cb4" kind="variable"><name>st</name></member>
+    <member refid="namespacemanual_1a72031b5d5914657256e8feb72013c530" kind="variable"><name>rate</name></member>
+    <member refid="namespacemanual_1a95b735f1f3580476240e3527f93f14fe" kind="variable"><name>moveBindings_temp</name></member>
+    <member refid="namespacemanual_1ab8fd106c21a853645293561d12e9d627" kind="variable"><name>key</name></member>
+    <member refid="namespacemanual_1a423baa27ac213ed6217cfa9a0aa61d52" kind="variable"><name>flag</name></member>
+    <member refid="namespacemanual_1a600071d4f54d395644ba829e9bff82d5" kind="function"><name>input</name></member>
+    <member refid="namespacemanual_1a2d09202d46d3488f412ee6055cc8cb0f" kind="function"><name>CallBack_scan</name></member>
+    <member refid="namespacemanual_1a098282a9626d7312419b60eb08878660" kind="function"><name>pop</name></member>
+    <member refid="namespacemanual_1a4d6f7ee37cd0bb81e2c614b887dfe9ab" kind="function"><name>vels</name></member>
+  </compound>
+  <compound refid="namespacestd__srvs_1_1srv" kind="namespace"><name>std_srvs::srv</name>
+  </compound>
+  <compound refid="namespace_u_i" kind="namespace"><name>UI</name>
+    <member refid="namespace_u_i_1a809ee2617a66f8c9e9966a9da76b3957" kind="variable"><name>msg</name></member>
+    <member refid="namespace_u_i_1a4570e2a9d5f1ddf4f326ca5f62269e4e" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="_c_make_lists_8txt" kind="file"><name>CMakeLists.txt</name>
+  </compound>
+  <compound refid="conf_8py" kind="file"><name>conf.py</name>
+  </compound>
+  <compound refid="assistive_8py" kind="file"><name>assistive.py</name>
+  </compound>
+  <compound refid="auto_8py" kind="file"><name>auto.py</name>
+  </compound>
+  <compound refid="manual_8py" kind="file"><name>manual.py</name>
+  </compound>
+  <compound refid="_u_i_8py" kind="file"><name>UI.py</name>
+  </compound>
+  <compound refid="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir"><name>scripts</name>
+  </compound>
+</doxygenindex>

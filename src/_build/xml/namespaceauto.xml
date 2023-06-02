@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceauto" kind="namespace" language="Python">
+    <compoundname>auto</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceauto_1a3e1c6917504b6a91b5f8fc5cc4093247" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string auto.state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>=  &quot;                                                                  &quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="36" column="1" bodyfile="scripts/auto.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceauto_1aac0b6dadf4b561898a660e77d1079efe" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool auto.flg</definition>
+        <argsstring></argsstring>
+        <name>flg</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="37" column="1" bodyfile="scripts/auto.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceauto_1ab6d40b467f53716fd7696c9c6fd9c04f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def auto.param_update</definition>
+        <argsstring>()</argsstring>
+        <name>param_update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function allocates updated values of parameters to the global variables.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="40" column="1" bodyfile="scripts/auto.py" bodystart="40" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceauto_1a208dd027e7678820216f01adfc4da888" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def auto.callback_odometry</definition>
+        <argsstring>(msg)</argsstring>
+        <name>callback_odometry</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>A callback function to the topic /odom, which is required to retrieve the presence of the robot.
+The odometry information of the robot is stored in the r_pos variable.
+
+Args:
+    msg: contains the position of the robot (x, y)
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="50" column="1" bodyfile="scripts/auto.py" bodystart="50" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceauto_1a8860f41a55e0be7e2af4d02163f39e85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def auto.callback_status_update</definition>
+        <argsstring>(status, result)</argsstring>
+        <name>callback_status_update</name>
+        <param>
+          <type>status</type>
+          <defname>status</defname>
+        </param>
+        <param>
+          <type>result</type>
+          <defname>result</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>A callback function to update the robot status when it reaches the target.
+
+Args:
+    status: goal status (actionlib_goalStatus)
+    result: goal result (MoveBaseResult)
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="62" column="1" bodyfile="scripts/auto.py" bodystart="62" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceauto_1ab6f303ad46c67e2dde4dc31e52e184d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def auto.client_goal</definition>
+        <argsstring>()</argsstring>
+        <name>client_goal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function sets a new goal for the robot. The action can send a goal or cancel request from the client to the server.
+After receiving, the server processes it and can give information back to the client.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="78" column="1" bodyfile="scripts/auto.py" bodystart="78" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceauto_1a546f667b3d1b827d21b4e5d9ce2c41ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def auto.client_init</definition>
+        <argsstring>()</argsstring>
+        <name>client_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function first initializes the Action Client. Then waits for the server, and initializes and sets the goal message.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="90" column="1" bodyfile="scripts/auto.py" bodystart="90" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceauto_1ae290b959a90956ddfad86b17a59a647e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def auto.callback_reset</definition>
+        <argsstring>(event)</argsstring>
+        <name>callback_reset</name>
+        <param>
+          <type>event</type>
+          <defname>event</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function will reset the robot&apos;s behavior when the robot doesn&apos;t reach the goal within a given time.
+
+Args:
+    event: time variable
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="106" column="1" bodyfile="scripts/auto.py" bodystart="106" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceauto_1ac9acb5dcda914aacc66f5d3041ec4976" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def auto.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Main function which controls the robot&apos;s behavior.
+When the callback function subscribes and the node is initialized, the while loop starts spinning.
+During execution, the node will call the last defined functions as the robot state is defined by global variables.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/auto.py" line="122" column="1" bodyfile="scripts/auto.py" bodystart="122" bodyend="183"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: auto
+    :platform: Unix
+    :synopsis: Python module for autonomous driving.
+.. moduleauthor:: Shima Amiri Fard &lt;s5269794@studenti.unige.it&gt;
+
+This module implements the autonomous driving mode. In this node, an Action Client-Service communication is implemented.
+The user needs to enter the target x and y, then the desired coordinate is sent as a goal to the action server/move_base.
+
+Subscribes to:
+    - /nav_msgs/odometry, which publishes the robot position
+
+Action client:
+    - /move_base
+
+Action messages:
+    - MoveBaseAction
+    - MoveBaseGoal, contains information about where the robot should move to in the environment
+
+Feedbacks:
+    - /move_base/goal, if the goal is reached
+    - /move_base/cancel, if the goal is canceled
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/auto.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

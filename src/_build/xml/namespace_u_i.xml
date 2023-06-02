@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespace_u_i" kind="namespace" language="Python">
+    <compoundname>UI</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_u_i_1a809ee2617a66f8c9e9966a9da76b3957" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string UI.msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <initializer>=  &quot;&quot;&quot;
+**Driving Modes**
+#Press 1: Auto Mode, drives the robot autonomously to x, y coordinates
+#Press 2: Manual Mode, user can drive the robot using the keyboard
+#Press 3: Assistive Mode, user can assist the robot while it is moving to avoid obstacles. 
+#Press 0: Idle Mode, the robot doesn&apos;t move and waits for user commands.
+
+q/z: accelerate/decelerate velocity by 10%
+w/x: accelerate/decelerate only linear velocity by 10%
+e/c: accelerate/decelerate only angular velocity by 10%
+
+CTRL-C to quit
+&quot;&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="24" column="1" bodyfile="scripts/UI.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_u_i_1a4570e2a9d5f1ddf4f326ca5f62269e4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def UI.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Main function asks the user to choose the driving mode (Auto mode, Manual mode, Assistive mode, or idle mode). 
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="39" column="1" bodyfile="scripts/UI.py" bodystart="39" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: UI
+    :platform: Unix
+    :synopsis: Python module for choosing driving mode
+.. moduleauthor:: Shima Amiri Fard &lt;s5269794@studenti.unige.it&gt;
+
+The user Interface node provides the users options to choose their desired driving mode (Auto mode, Manual mode, Assistive mode, and idle mode). 
+
+
+The main parameters are:
+
+**Active**: According to the user input, the value of this parameter will change. All nodes either keep their current idle state or switch to a running state. 
+
+**(X, Y)**: If the mode [1] is chosen (auto mode), the User interface asks a target X and Y coordinate from the user.
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/UI.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

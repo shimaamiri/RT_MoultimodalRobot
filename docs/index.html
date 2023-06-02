@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to ResearchTrack1_Assignment3’s documentation! &mdash; ResearchTrack1_Assignment3 1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            ResearchTrack1_Assignment3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to ResearchTrack1_Assignment3’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#module-scripts.UI">User Interface Module</a><ul>
+<li><a class="reference internal" href="#scripts.UI.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.auto">Autonomous Driving Module</a><ul>
+<li><a class="reference internal" href="#scripts.auto.callback_odometry"><code class="docutils literal notranslate"><span class="pre">callback_odometry()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.auto.callback_reset"><code class="docutils literal notranslate"><span class="pre">callback_reset()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.auto.callback_status_update"><code class="docutils literal notranslate"><span class="pre">callback_status_update()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.auto.client_goal"><code class="docutils literal notranslate"><span class="pre">client_goal()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.auto.client_init"><code class="docutils literal notranslate"><span class="pre">client_init()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.auto.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.auto.param_update"><code class="docutils literal notranslate"><span class="pre">param_update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.assistive">Assistive Driving Module</a><ul>
+<li><a class="reference internal" href="#scripts.assistive.callback_avoid"><code class="docutils literal notranslate"><span class="pre">callback_avoid()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.assistive.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.manual">Manual Driving Module</a><ul>
+<li><a class="reference internal" href="#scripts.manual.CallBack_scan"><code class="docutils literal notranslate"><span class="pre">CallBack_scan()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.manual.PublishThread"><code class="docutils literal notranslate"><span class="pre">PublishThread</span></code></a><ul>
+<li><a class="reference internal" href="#scripts.manual.PublishThread.run"><code class="docutils literal notranslate"><span class="pre">PublishThread.run()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.manual.PublishThread.stop_r"><code class="docutils literal notranslate"><span class="pre">PublishThread.stop_r()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.manual.PublishThread.update"><code class="docutils literal notranslate"><span class="pre">PublishThread.update()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.manual.PublishThread.wait_for_subscribers"><code class="docutils literal notranslate"><span class="pre">PublishThread.wait_for_subscribers()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scripts.manual.input"><code class="docutils literal notranslate"><span class="pre">input()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.manual.pop"><code class="docutils literal notranslate"><span class="pre">pop()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.manual.vels"><code class="docutils literal notranslate"><span class="pre">vels()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">ResearchTrack1_Assignment3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to ResearchTrack1_Assignment3’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-researchtrack1-assignment3-s-documentation">
+<h1>Welcome to ResearchTrack1_Assignment3’s documentation!<a class="headerlink" href="#welcome-to-researchtrack1-assignment3-s-documentation" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+<section id="module-scripts.UI">
+<span id="user-interface-module"></span><h1>User Interface Module<a class="headerlink" href="#module-scripts.UI" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-UI"></span><p>The user Interface node provides the users options to choose their desired driving mode (Auto mode, Manual mode, Assistive mode, and idle mode).</p>
+<p>The main parameters are:</p>
+<p><strong>Active</strong>: According to the user input, the value of this parameter will change. All nodes either keep their current idle state or switch to a running state.</p>
+<p><strong>(X, Y)</strong>: If the mode [1] is chosen (auto mode), the User interface asks a target X and Y coordinate from the user.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.UI.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.UI.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/UI.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.UI.main" title="Permalink to this definition"></a></dt>
+<dd><p>Main function asks the user to choose the driving mode (Auto mode, Manual mode, Assistive mode, or idle mode).</p>
+</dd></dl>
+
+</section>
+<section id="module-scripts.auto">
+<span id="autonomous-driving-module"></span><h1>Autonomous Driving Module<a class="headerlink" href="#module-scripts.auto" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-auto"></span><p>This module implements the autonomous driving mode. In this node, an Action Client-Service communication is implemented.
+The user needs to enter the target x and y, then the desired coordinate is sent as a goal to the action server/move_base.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><ul class="simple">
+<li><p>/nav_msgs/odometry, which publishes the robot position</p></li>
+</ul>
+</dd>
+<dt>Action client:</dt><dd><ul class="simple">
+<li><p>/move_base</p></li>
+</ul>
+</dd>
+<dt>Action messages:</dt><dd><ul class="simple">
+<li><p>MoveBaseAction</p></li>
+<li><p>MoveBaseGoal, contains information about where the robot should move to in the environment</p></li>
+</ul>
+</dd>
+<dt>Feedbacks:</dt><dd><ul class="simple">
+<li><p>/move_base/goal, if the goal is reached</p></li>
+<li><p>/move_base/cancel, if the goal is canceled</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.auto.callback_odometry">
+<span class="sig-prename descclassname"><span class="pre">scripts.auto.</span></span><span class="sig-name descname"><span class="pre">callback_odometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/auto.html#callback_odometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.auto.callback_odometry" title="Permalink to this definition"></a></dt>
+<dd><p>A callback function to the topic /odom, which is required to retrieve the presence of the robot.
+The odometry information of the robot is stored in the r_pos variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> – contains the position of the robot (x, y)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.auto.callback_reset">
+<span class="sig-prename descclassname"><span class="pre">scripts.auto.</span></span><span class="sig-name descname"><span class="pre">callback_reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/auto.html#callback_reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.auto.callback_reset" title="Permalink to this definition"></a></dt>
+<dd><p>This function will reset the robot’s behavior when the robot doesn’t reach the goal within a given time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> – time variable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.auto.callback_status_update">
+<span class="sig-prename descclassname"><span class="pre">scripts.auto.</span></span><span class="sig-name descname"><span class="pre">callback_status_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/auto.html#callback_status_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.auto.callback_status_update" title="Permalink to this definition"></a></dt>
+<dd><p>A callback function to update the robot status when it reaches the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – goal status (actionlib_goalStatus)</p></li>
+<li><p><strong>result</strong> – goal result (MoveBaseResult)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.auto.client_goal">
+<span class="sig-prename descclassname"><span class="pre">scripts.auto.</span></span><span class="sig-name descname"><span class="pre">client_goal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/auto.html#client_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.auto.client_goal" title="Permalink to this definition"></a></dt>
+<dd><p>This function sets a new goal for the robot. The action can send a goal or cancel request from the client to the server.
+After receiving, the server processes it and can give information back to the client.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.auto.client_init">
+<span class="sig-prename descclassname"><span class="pre">scripts.auto.</span></span><span class="sig-name descname"><span class="pre">client_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/auto.html#client_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.auto.client_init" title="Permalink to this definition"></a></dt>
+<dd><p>This function first initializes the Action Client. Then waits for the server, and initializes and sets the goal message.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.auto.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.auto.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/auto.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.auto.main" title="Permalink to this definition"></a></dt>
+<dd><p>Main function which controls the robot’s behavior.
+When the callback function subscribes and the node is initialized, the while loop starts spinning.
+During execution, the node will call the last defined functions as the robot state is defined by global variables.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.auto.param_update">
+<span class="sig-prename descclassname"><span class="pre">scripts.auto.</span></span><span class="sig-name descname"><span class="pre">param_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/auto.html#param_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.auto.param_update" title="Permalink to this definition"></a></dt>
+<dd><p>This function allocates updated values of parameters to the global variables.</p>
+</dd></dl>
+
+</section>
+<section id="module-scripts.assistive">
+<span id="assistive-driving-module"></span><h1>Assistive Driving Module<a class="headerlink" href="#module-scripts.assistive" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-assistive"></span><p>This module implements the third mode of the assistive driving, where the robot can be controlled manually by the user. Moreover, obstacles are detected by a laser scanner to avoid collisions.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><ul class="simple">
+<li><p>/laser_scan</p></li>
+</ul>
+</dd>
+<dt>Publishes to:</dt><dd><ul class="simple">
+<li><p>/avoid</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.assistive.callback_avoid">
+<span class="sig-prename descclassname"><span class="pre">scripts.assistive.</span></span><span class="sig-name descname"><span class="pre">callback_avoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/assistive.html#callback_avoid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.assistive.callback_avoid" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function to retrieve data from the obstacles (walls) surrounding the robot. This function receives data from
+/laser_scan, and divides the data into five ranges: right, front-right, front, front-left, and left.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>sensor_msgs.msg.LaserScan</em>) – Contains the distances from obstacles.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.assistive.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.assistive.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/assistive.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.assistive.main" title="Permalink to this definition"></a></dt>
+<dd><p>Main function which controls the robot’s behavior. The subscriber, publisher are created and the node is initialized.</p>
+</dd></dl>
+
+</section>
+<section id="module-scripts.manual">
+<span id="manual-driving-module"></span><h1>Manual Driving Module<a class="headerlink" href="#module-scripts.manual" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-manual"></span><p>This node uses “teleop_twist_keyboard.py”, refer to &lt;<a class="reference external" href="http://wiki.ros.org/teleop_twist_keyboard">http://wiki.ros.org/teleop_twist_keyboard</a>&gt; . This allows the user to drive the robot manually by pressing keys, then depending on the input this node publishes twist message on the /cmd_vel topic. The Twist message defines the linear and angular velocity of the robot.</p>
+<dl class="simple">
+<dt>Publishes to:</dt><dd><p>/cmd_vel</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.manual.CallBack_scan">
+<span class="sig-prename descclassname"><span class="pre">scripts.manual.</span></span><span class="sig-name descname"><span class="pre">CallBack_scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#CallBack_scan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.CallBack_scan" title="Permalink to this definition"></a></dt>
+<dd><p>This callback function retrieves info from obstacles surrounding the robot.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>/check topic, which publishes to /avoidingwall.msg, which contains the info about the walls near the robot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.manual.PublishThread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.manual.</span></span><span class="sig-name descname"><span class="pre">PublishThread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#PublishThread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.PublishThread" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="scripts.manual.PublishThread.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#PublishThread.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.PublishThread.run" title="Permalink to this definition"></a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.manual.PublishThread.stop_r">
+<span class="sig-name descname"><span class="pre">stop_r</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#PublishThread.stop_r"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.PublishThread.stop_r" title="Permalink to this definition"></a></dt>
+<dd><p>This function is used by “PublishThread” class. It will stop the robot by turning the linear and angular velocities to 0 with the “Twist” message through the “/cmd_vel” topic.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.manual.PublishThread.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">th</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#PublishThread.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.PublishThread.update" title="Permalink to this definition"></a></dt>
+<dd><p>A funtion for updating the coordinate and velocity of the robot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – y
+z
+th: threshold
+speed
+turn</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.manual.PublishThread.wait_for_subscribers">
+<span class="sig-name descname"><span class="pre">wait_for_subscribers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#PublishThread.wait_for_subscribers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.PublishThread.wait_for_subscribers" title="Permalink to this definition"></a></dt>
+<dd><p>A function to wait for subscribers</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.manual.input">
+<span class="sig-prename descclassname"><span class="pre">scripts.manual.</span></span><span class="sig-name descname"><span class="pre">input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.input" title="Permalink to this definition"></a></dt>
+<dd><p>This funtion recieves inputs from the user via keyboard.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key_timeout</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.manual.pop">
+<span class="sig-prename descclassname"><span class="pre">scripts.manual.</span></span><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.pop" title="Permalink to this definition"></a></dt>
+<dd><p>This function associates the pressed key to the real motion of the robot by using POP command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dictionary</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – a dictionary consisting of keys</p>
+</dd>
+</dl>
+<p>For each direction, value 1 means that the wall is not close in that direction so robot can turn in that direction. Value 0, means the  wall is closed to that direction so turn toward that direction is not allowed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.manual.vels">
+<span class="sig-prename descclassname"><span class="pre">scripts.manual.</span></span><span class="sig-name descname"><span class="pre">vels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/manual.html#vels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.manual.vels" title="Permalink to this definition"></a></dt>
+<dd><p>This function reports the velocity of the robot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>speed</strong> – </p></li>
+<li><p><strong>turn</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Shima Amiri Fard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

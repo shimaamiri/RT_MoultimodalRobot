@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceassistive" kind="namespace" language="Python">
+    <compoundname>assistive</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceassistive_1a68eede63df7ef493b1986a9eacfeb22f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool assistive.l</definition>
+        <argsstring></argsstring>
+        <name>l</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/assistive.py" line="24" column="1" bodyfile="scripts/assistive.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassistive_1ad9dfd11c01f7428673822d0a03316139" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool assistive.r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/assistive.py" line="25" column="1" bodyfile="scripts/assistive.py" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceassistive_1ab386e29fa01002c8549c07e4156e0175" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool assistive.f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/assistive.py" line="26" column="1" bodyfile="scripts/assistive.py" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceassistive_1a06db66cbae42e8e8bb5279db0114522e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def assistive.callback_avoid</definition>
+        <argsstring>(msg)</argsstring>
+        <name>callback_avoid</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Callback function to retrieve data from the obstacles (walls) surrounding the robot. This function receives data from
+/laser_scan, and divides the data into five ranges: right, front-right, front, front-left, and left.
+
+Args:
+    msg (sensor_msgs.msg.LaserScan): Contains the distances from obstacles.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/assistive.py" line="29" column="1" bodyfile="scripts/assistive.py" bodystart="29" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceassistive_1a8fdbad8c3d3ef224417261cac64715d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def assistive.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Main function which controls the robot&apos;s behavior. The subscriber, publisher are created and the node is initialized.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/assistive.py" line="71" column="1" bodyfile="scripts/assistive.py" bodystart="71" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: assistive
+    :platform: Unix
+    :synopsis: Python module for assistive driving.
+.. moduleauthor:: Shima Amiri Fard &lt;s5269794@studenti.unige.it&gt;
+
+This module implements the third mode of the assistive driving, where the robot can be controlled manually by the user. Moreover, obstacles are detected by a laser scanner to avoid collisions.
+
+Subscribes to:
+    - /laser_scan
+
+Publishes to:
+    - /avoid
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/assistive.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="assistive_8py" kind="file" language="Python">
+    <compoundname>assistive.py</compoundname>
+    <innernamespace refid="namespaceassistive">assistive</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceassistive" refkind="compound"><highlight class="comment">#!/usr/bin/env<sp/>python3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral">..<sp/>module::<sp/>assistive</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:synopsis:<sp/>Python<sp/>module<sp/>for<sp/>assistive<sp/>driving.</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>Shima<sp/>Amiri<sp/>Fard<sp/>&lt;s5269794@studenti.unige.it&gt;</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral">This<sp/>module<sp/>implements<sp/>the<sp/>third<sp/>mode<sp/>of<sp/>the<sp/>assistive<sp/>driving,<sp/>where<sp/>the<sp/>robot<sp/>can<sp/>be<sp/>controlled<sp/>manually<sp/>by<sp/>the<sp/>user.<sp/>Moreover,<sp/>obstacles<sp/>are<sp/>detected<sp/>by<sp/>a<sp/>laser<sp/>scanner<sp/>to<sp/>avoid<sp/>collisions.</highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral">Subscribes<sp/>to:</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>/laser_scan</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral">Publishes<sp/>to:</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>/avoid</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>__future__<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>print_function</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>sensor_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>LaserScan</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>final_assignment.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Avoid</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">l<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>wall<sp/>on<sp/>the<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">r<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>wall<sp/>on<sp/>the<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">f<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>wall<sp/>in<sp/>front</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceassistive_1a06db66cbae42e8e8bb5279db0114522e" kindref="member">callback_avoid</ref>(msg):</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Callback<sp/>function<sp/>to<sp/>retrieve<sp/>data<sp/>from<sp/>the<sp/>obstacles<sp/>(walls)<sp/>surrounding<sp/>the<sp/>robot.<sp/>This<sp/>function<sp/>receives<sp/>data<sp/>from</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>/laser_scan,<sp/>and<sp/>divides<sp/>the<sp/>data<sp/>into<sp/>five<sp/>ranges:<sp/>right,<sp/>front-right,<sp/>front,<sp/>front-left,<sp/>and<sp/>left.</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg<sp/>(sensor_msgs.msg.LaserScan):<sp/>Contains<sp/>the<sp/>distances<sp/>from<sp/>obstacles.</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>l,<sp/>r,<sp/>f</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>active_<sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&quot;/active&quot;</highlight><highlight class="normal">)<sp/><sp/></highlight><highlight class="comment">#<sp/>Active<sp/>parameters<sp/>value<sp/>is<sp/>assigned<sp/>to<sp/>the<sp/>local<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>active_<sp/>==<sp/>3:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>right<sp/>=<sp/>min(msg.ranges[0:143])</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>front<sp/>=<sp/>min(msg.ranges[288:431])</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>left<sp/>=<sp/>min(msg.ranges[576:719])</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>right<sp/>&lt;<sp/>1.0:<sp/><sp/></highlight><highlight class="comment">#<sp/>robot<sp/>on<sp/>the<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>front<sp/>&lt;<sp/>1.0:<sp/><sp/></highlight><highlight class="comment">#<sp/>robot<sp/>on<sp/>the<sp/>front</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>left<sp/>&lt;<sp/>1.0:<sp/><sp/></highlight><highlight class="comment">#<sp/>robot<sp/>on<sp/>the<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>all<sp/>the<sp/>conditions<sp/>are<sp/>okay,<sp/>Operation<sp/>3<sp/>&quot;Obstacle<sp/>avoidance<sp/>operations<sp/>to<sp/>drive</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>the<sp/>robot<sp/>assisting<sp/>them<sp/>(using<sp/>keyboard)<sp/>to<sp/>avoid<sp/>collisions&quot;<sp/>is<sp/>stopped</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>f<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceassistive_1a8fdbad8c3d3ef224417261cac64715d6" kindref="member">main</ref>():</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Main<sp/>function<sp/>which<sp/>controls<sp/>the<sp/>robot&apos;s<sp/>behavior.<sp/>The<sp/>subscriber,<sp/>publisher<sp/>are<sp/>created<sp/>and<sp/>the<sp/>node<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>l,<sp/>r,<sp/>f</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Publishing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>pub<sp/>=<sp/>rospy.Publisher(</highlight><highlight class="stringliteral">&apos;custom_controller&apos;</highlight><highlight class="normal">,<sp/>Avoid,<sp/>queue_size=10)<sp/><sp/></highlight><highlight class="comment">#<sp/>publisher<sp/>to<sp/>custom_controller</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&apos;avoidance&apos;</highlight><highlight class="normal">)<sp/><sp/></highlight><highlight class="comment">#<sp/>initializing<sp/>the<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>sub<sp/>=<sp/>rospy.Subscriber(</highlight><highlight class="stringliteral">&apos;/scan&apos;</highlight><highlight class="normal">,<sp/>LaserScan,<sp/>callback_avoid)<sp/><sp/></highlight><highlight class="comment">#<sp/>subscriber<sp/>to<sp/>/scan</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>rate<sp/>=<sp/>rospy.Rate(5)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_msg<sp/>=<sp/>Avoid()<sp/><sp/></highlight><highlight class="comment">#<sp/>custom<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/>rospy.is_shutdown():</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pub_msg.left<sp/>=<sp/>l<sp/><sp/></highlight><highlight class="comment">#<sp/>custom<sp/>message<sp/>field<sp/>is<sp/>assigned<sp/>for<sp/>left<sp/>wall</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pub_msg.right<sp/>=<sp/>r<sp/><sp/></highlight><highlight class="comment">#<sp/>custom<sp/>message<sp/>field<sp/>is<sp/>assigned<sp/>for<sp/>right<sp/>wall</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pub_msg.front<sp/>=<sp/>f<sp/><sp/></highlight><highlight class="comment">#<sp/>custom<sp/>message<sp/>field<sp/>is<sp/>assigned<sp/>for<sp/>front<sp/>wall</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pub.publish(pub_msg)<sp/><sp/></highlight><highlight class="comment">#<sp/>publishing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rate.sleep()</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;__main__&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceassistive_1a8fdbad8c3d3ef224417261cac64715d6" kindref="member">main</ref>()</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="scripts/assistive.py"/>
+  </compounddef>
+</doxygen>

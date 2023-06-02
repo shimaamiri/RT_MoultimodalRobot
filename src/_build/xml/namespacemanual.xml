@@ -1,0 +1,527 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacemanual" kind="namespace" language="Python">
+    <compoundname>manual</compoundname>
+    <innerclass refid="classmanual_1_1_publish_thread" prot="public">manual::PublishThread</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemanual_1a0c2c883935fcb142163074d71afc7455" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string manual.msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <initializer>=  &quot;&quot;&quot;
+MANUAL DRIVING MODE
+---------------------------
+Moving around:
+           k   
+      j    i    l 
+
+For Holonomic mode (strafing), hold down the shift key:
+---------------------------
+           K    
+      U    I    L
+
+
+q/z : accelerate/decelrate velocity by 10%
+w/x : accelerate/decelrate only linear velocity by 10%
+e/c : accelerate/decelrate only angular velocity by 10%
+
+CTRL-C to quit
+&quot;&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="30" column="1" bodyfile="scripts/manual.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a83479c65f11b0c3feaa3092949115c75" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool manual.l</definition>
+        <argsstring></argsstring>
+        <name>l</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="50" column="1" bodyfile="scripts/manual.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a19bb7c608a16eba0816661840d63134d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool manual.r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="51" column="1" bodyfile="scripts/manual.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1aa95e6ab504a59315cf9e70626579b015" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool manual.f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="52" column="1" bodyfile="scripts/manual.py" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1aad63f284b04b062acb85ed11a309f36f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool manual.fl</definition>
+        <argsstring></argsstring>
+        <name>fl</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="53" column="1" bodyfile="scripts/manual.py" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a7d65bd103830cc9a6340abac2b4057d6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool manual.fr</definition>
+        <argsstring></argsstring>
+        <name>fr</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="54" column="1" bodyfile="scripts/manual.py" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a3e46722a65cafcef18fb0f3effd3b81c" prot="public" static="no" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary manual.moveBindings</definition>
+        <argsstring></argsstring>
+        <name>moveBindings</name>
+        <initializer>=  {
+        &apos;i&apos;:(1,0,0,0),
+        &apos;o&apos;:(1,0,0,-1),
+        &apos;j&apos;:(0,0,0,1),
+        &apos;l&apos;:(0,0,0,-1),
+        &apos;u&apos;:(1,0,0,1),
+        &apos;k&apos;:(-1,0,0,0),
+        &apos;.&apos;:(-1,0,0,1),
+        &apos;m&apos;:(-1,0,0,-1),
+        &apos;O&apos;:(1,-1,0,0),
+        &apos;I&apos;:(1,0,0,0),
+        &apos;J&apos;:(0,1,0,0),
+        &apos;L&apos;:(0,-1,0,0),
+        &apos;U&apos;:(1,1,0,0),
+        &apos;K&apos;:(-1,0,0,0),
+        &apos;&gt;&apos;:(-1,-1,0,0),
+        &apos;M&apos;:(-1,1,0,0),
+        &apos;t&apos;:(0,0,1,0),
+        &apos;b&apos;:(0,0,-1,0),
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="55" column="1" bodyfile="scripts/manual.py" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1ac75c9097c20b1876a62aa4529888c4da" prot="public" static="no" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary manual.speedBindings</definition>
+        <argsstring></argsstring>
+        <name>speedBindings</name>
+        <initializer>= {
+        &apos;q&apos;:(1.1,1.1),
+        &apos;z&apos;:(.9,.9),
+        &apos;w&apos;:(1.1,1),
+        &apos;x&apos;:(.9,1),
+        &apos;e&apos;:(1,1.1),
+        &apos;c&apos;:(1,.9),
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="76" column="1" bodyfile="scripts/manual.py" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a7fe4b9c9acec80d202536ab01252d95a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>manual.settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <initializer>=  termios.tcgetattr(sys.stdin)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="283" column="1" bodyfile="scripts/manual.py" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a39f149d6ee1a75b4d851a506bc57a1b5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>dictionary manual::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <initializer>=  rospy.get_param(&quot;~speed&quot;, 0.5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="284" column="1" bodyfile="scripts/manual.py" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1aa1f419fe983b631f9180f2adb6802406" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>dictionary manual::turn</definition>
+        <argsstring></argsstring>
+        <name>turn</name>
+        <initializer>=  rospy.get_param(&quot;~turn&quot;, 1.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="285" column="1" bodyfile="scripts/manual.py" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a7babe1cc361d3de121cd92bff9a09a1d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>manual.repeat</definition>
+        <argsstring></argsstring>
+        <name>repeat</name>
+        <initializer>=  rospy.get_param(&quot;~repeat_rate&quot;, 0.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="286" column="1" bodyfile="scripts/manual.py" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a94405c184c68bb0a24fde60b15819c1b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>manual.key_timeout</definition>
+        <argsstring></argsstring>
+        <name>key_timeout</name>
+        <initializer>=  rospy.get_param(&quot;~key_timeout&quot;, 0.1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="287" column="1" bodyfile="scripts/manual.py" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1ad5f15c381756fb1a59a0f6c885f0e5e8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>manual.active_</definition>
+        <argsstring></argsstring>
+        <name>active_</name>
+        <initializer>= rospy.get_param(&quot;/active&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="288" column="1" bodyfile="scripts/manual.py" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1abca164b05182510289fc7889f2670fc2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool manual::flag1</definition>
+        <argsstring></argsstring>
+        <name>flag1</name>
+        <initializer>=  True</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="292" column="1" bodyfile="scripts/manual.py" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1ae40e784a7779b80399a74ecb5ea640c7" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool manual::flag2</definition>
+        <argsstring></argsstring>
+        <name>flag2</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="293" column="1" bodyfile="scripts/manual.py" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a7e45a41de8b8816f02ece6c0c974cf17" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>manual.pub_thread</definition>
+        <argsstring></argsstring>
+        <name>pub_thread</name>
+        <initializer>=  <ref refid="classmanual_1_1_publish_thread" kindref="compound">PublishThread</ref>(repeat)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="298" column="1" bodyfile="scripts/manual.py" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a7147cb43fcb3aef54ad1f6a9296c78d0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int manual::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="300" column="1" bodyfile="scripts/manual.py" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a3558973b20d5162693dce98c5cc57247" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int manual::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="301" column="1" bodyfile="scripts/manual.py" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a23536d6932517b930e50bf863be60883" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int manual::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="302" column="1" bodyfile="scripts/manual.py" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a6720ffc0e09bfbff8480c0cd867fe90e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int manual::th</definition>
+        <argsstring></argsstring>
+        <name>th</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="303" column="1" bodyfile="scripts/manual.py" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a6640203dc3fb8706198a3450e76e8cb4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>tuple manual::st</definition>
+        <argsstring></argsstring>
+        <name>st</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="304" column="1" bodyfile="scripts/manual.py" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a72031b5d5914657256e8feb72013c530" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>manual.rate</definition>
+        <argsstring></argsstring>
+        <name>rate</name>
+        <initializer>=  rospy.Rate(5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="306" column="1" bodyfile="scripts/manual.py" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a95b735f1f3580476240e3527f93f14fe" prot="public" static="no" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary manual::moveBindings_temp</definition>
+        <argsstring></argsstring>
+        <name>moveBindings_temp</name>
+        <initializer>=  {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="309" column="1" bodyfile="scripts/manual.py" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1ab8fd106c21a853645293561d12e9d627" prot="public" static="no" mutable="no">
+        <type>def</type>
+        <definition>def manual.key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <initializer>=  <ref refid="namespacemanual_1a600071d4f54d395644ba829e9bff82d5" kindref="member">input</ref>(key_timeout)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="326" column="1" bodyfile="scripts/manual.py" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemanual_1a423baa27ac213ed6217cfa9a0aa61d52" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int manual.flag</definition>
+        <argsstring></argsstring>
+        <name>flag</name>
+        <initializer>=  1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="355" column="1" bodyfile="scripts/manual.py" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemanual_1a600071d4f54d395644ba829e9bff82d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def manual.input</definition>
+        <argsstring>(key_timeout)</argsstring>
+        <name>input</name>
+        <param>
+          <type>key_timeout</type>
+          <defname>key_timeout</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This funtion recieves inputs from the user via keyboard.
+
+Args:
+  key_timeout
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="196" column="1" bodyfile="scripts/manual.py" bodystart="196" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemanual_1a2d09202d46d3488f412ee6055cc8cb0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def manual.CallBack_scan</definition>
+        <argsstring>(msg)</argsstring>
+        <name>CallBack_scan</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This callback function retrieves info from obstacles surrounding the robot.
+
+Subscribes to:
+      /check topic, which publishes to /avoidingwall.msg, which contains the info about the walls near the robot. </verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="213" column="1" bodyfile="scripts/manual.py" bodystart="213" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemanual_1a098282a9626d7312419b60eb08878660" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def manual.pop</definition>
+        <argsstring>(dictionary)</argsstring>
+        <name>pop</name>
+        <param>
+          <type>dictionary</type>
+          <defname>dictionary</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function associates the pressed key to the real motion of the robot by using POP command.
+
+Args: 
+  dictionary(dict): a dictionary consisting of keys
+
+For each direction, value 1 means that the wall is not close in that direction so robot can turn in that direction. Value 0, means the  wall is closed to that direction so turn toward that direction is not allowed.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="229" column="1" bodyfile="scripts/manual.py" bodystart="229" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemanual_1a4d6f7ee37cd0bb81e2c614b887dfe9ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def manual.vels</definition>
+        <argsstring>(speed, turn)</argsstring>
+        <name>vels</name>
+        <param>
+          <type>speed</type>
+          <defname>speed</defname>
+        </param>
+        <param>
+          <type>turn</type>
+          <defname>turn</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function reports the velocity of the robot
+
+Args: 
+  speed
+  turn
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/manual.py" line="269" column="1" bodyfile="scripts/manual.py" bodystart="269" bodyend="279"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: manual
+:platform: Unix
+:synopsis: Python module for manual driving
+.. moduleauthor:: Shima Amiri Fard &lt;s5269794@studenti.unige.it&gt;
+
+This node uses &quot;teleop_twist_keyboard.py&quot;, refer to &lt;http://wiki.ros.org/teleop_twist_keyboard&gt; . This allows the user to drive the robot manually by pressing keys, then depending on the input this node publishes twist message on the /cmd_vel topic. The Twist message defines the linear and angular velocity of the robot. 
+
+Publishes to:
+  /cmd_vel 
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/manual.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>
