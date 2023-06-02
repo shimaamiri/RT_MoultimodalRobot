@@ -1,6 +1,11 @@
 # RT1_Assignment3
 # Submitted by Shima Amiri Fard & Supervised by Prof. Carmine Recchiuto
 
+refer to the following link to see the documentation for research track-2 assignment1:
+
+(https://shimaamiri.github.io/RT_MoultimodalRobot/)
+
+
 The assignment focuses on the development of a software architecture for the control of a mobile robot. Moreover, the architecture should also be able to fetch the request from the user.It must also allow the user to execute some of the behaviors.
 
 __AIM OF THE ASSIGNMENT__
