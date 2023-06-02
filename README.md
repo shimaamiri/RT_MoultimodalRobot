@@ -1,8 +1,7 @@
 # RT1_Assignment3
 # Submitted by Shima Amiri Fard & Supervised by Prof. Carmine Recchiuto
 
-refer to the following link to see the documentation for research track-2 assignment1:
-
+refer to the following link to see the SPHINX Documentation for research track-2 assignment1:
 (https://shimaamiri.github.io/RT_MoultimodalRobot/)
 
 
