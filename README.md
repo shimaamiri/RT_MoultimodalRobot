@@ -1,15 +1,17 @@
 # RT1_Assignment3
 # Submitted by Shima Amiri Fard & Supervised by Prof. Carmine Recchiuto
 
-[SPHINX DOCUMENTAION]
+__Sphinx Documentation__
+For this project i developed documentation using Sphinx tool.
+[SPHINX DOCUMENTAION](https://shimaamiri.github.io/RT_MoultimodalRobot/)
 
+__Jupyter Notebook User Interface__
+For this project i developed a Jupyter Notebook User Interface which can control the Robot. The user can choose the robot's mode.
 [Jupyter Notebook](UI_Jupyter.ipynb)
 
 
-
-The assignment focuses on the development of a software architecture for the control of a mobile robot. Moreover, the architecture should also be able to fetch the request from the user.It must also allow the user to execute some of the behaviors.
-
 __AIM OF THE ASSIGNMENT__
+The assignment focuses on the development of a software architecture for the control of a mobile robot. Moreover, the architecture should also be able to fetch the request from the user.It must also allow the user to execute some of the behaviors.
 
 In this assignment, we need to create a package in which the user will be able to use three different modalities in order to move the robot.The modalities are as follows:
 
